@@ -183,6 +183,18 @@ if n_elements(ifiles) eq n_elements(files) then begin
    files=ifiles ; restore input
 endif
 
+;exposure normalisation
+n = n_elements(index)
+for i=0,n-1 do begin
+  tags = tag_names(index[i])
+  exptag_num = where(tags eq 'EXPTIME')
+  if exptag_num ge 0 then begin
+    exptime = index[i].exptime
+    data[*,*,i] = data[*,*,i]/exptime
+  endif
+endfor
+
+
 return
 end
 
