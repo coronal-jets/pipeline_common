@@ -105,16 +105,16 @@ case 1 of
    n_params() eq 2 or nodata: mreadfits_header,files,index,exten=next,_extra=_extra
    n_params() eq 3: begin
 ;      if next eq 0 then mreadfits_shm,files,index,data,_extra=_extra else $
-      if next eq 0 then mreadfits,files,index,data,_extra=_extra, /silent else $
+      if next eq 0 then mreadfits_silent,files,index,data,_extra=_extra, /silent else $
          mreadfits_tilecomp_silent,files,index,data,_extra=_extra, fnames_uncomp=fnames_uncomp, $
-            parent_out=parent_out, outdir=outdir, time_tag=time_tag,/silent
+            parent_out=parent_out, outdir=outdir, time_tag=time_tag,/silent,/hide,/logoutput
    endcase
    else: begin
       if next eq 0 then $
 ;         mreadfits_shm,files,index,data,xllp,yllp,nxp,nyp,_extra=_extra else $
-         mreadfits,files,index,data,xllp,yllp,nxp,nyp,_extra=_extra else $
+         mreadfits_silent,files,index,data,xllp,yllp,nxp,nyp,_extra=_extra else $
          mreadfits_tilecomp_silent,files,index,data,xllp,yllp,nxp,nyp,_extra=_extra, $
-            fnames_uncomp=fnames_uncomp, parent_out=parent_out, outdir=outdir,/silent
+            fnames_uncomp=fnames_uncomp, parent_out=parent_out, outdir=outdir,/silent,/hide,/logoutput
    endcase
 endcase
 
