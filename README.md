@@ -8,3 +8,4 @@ Some routines are required [Solar Soft](https://www.lmsal.com/solarsoft/ssw_pack
 
 ## Update History
 * 19 February 2021: major revision, see comments to the [jet pipeline](https://github.com/coronal-jets/pipeline_aia) for this date.
+* 20 February 2021: time report utility updated and renamed.
