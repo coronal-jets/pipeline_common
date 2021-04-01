@@ -46,11 +46,6 @@ status = asu_try_download(url, tmp_file)
 
 read_sdo_silent, tmp_file, index, data, /use_shared, /uncomp_delete, /hide, /silent
 writefits_silent, uncomp_file, float(data), struct2fitshead(index)     
-;mreadfits_tilecomp_silent, tmp_file, index, data $
-;      , parent_out = save_dir $
-;      ;, /only_uncompress $
-;      , /noshell, /hide, /silent $
-;      , fnames_uncomp = fnames_uncomp
 
 file_delete, tmp_file
 

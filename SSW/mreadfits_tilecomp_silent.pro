@@ -259,8 +259,11 @@ pro mreadfits_tilecomp_silent, tfiles, index, data, $
       is_unix = os_family() eq 'unix'
       tfilesq_i = is_unix and noshell ? tfilesq[i] : '"'+tfilesq[i]+'"'
       fnames_i = is_unix and noshell  ? fnames[i] : '"'+fnames[i]+'"'
-      if noshell then spawn,[imcopy, tfilesq_i, fnames_i],/noshell,_extra=_extra else $ ; attempt; no guarantees...
-        spawn,imcopy+' '+tfilesq_i+' '+fnames_i,_extra=_extra ; for now at least, must use shell...
+      if noshell then begin
+          spawn,[imcopy, tfilesq_i, fnames_i],/noshell,_extra=_extra ; attempt; no guarantees...
+      endif else begin      
+          spawn,imcopy+' '+tfilesq_i+' '+fnames_i,_extra=_extra ; for now at least, must use shell...
+      endelse
     ;---------
             
       if get_logenv('noshell') ne '' then stop,'noshell check'
