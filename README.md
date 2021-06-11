@@ -11,3 +11,5 @@ Some routines are required [Solar Soft](https://www.lmsal.com/solarsoft/ssw_pack
 * 20 February 2021: time report utility updated and renamed.
 * 30 March 2021: see comment 30 March 2021 to [jet pipeline](https://github.com/coronal-jets/pipeline_aia)
 * 01 April 2021: major implementation, MM3D (morphology in 3D (x-y-time) space) introduced
+* 05 May 2021: Improvements for full image download
+* 02 June 2021: Small utility
