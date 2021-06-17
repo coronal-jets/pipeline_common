@@ -2,6 +2,11 @@ pro aria2_urls_rand, urls, dir, output=output
   ;wget='"C:\Program Files\GnuWin32\bin\wget"'
   
   aria2cpath = file_dirname((ROUTINE_INFO('aria2_urls_rand', /source)).path, /mark)
+  
+  if !version.OS_FAMILY eq 'unix' then begin ;use aria2c binary from the systim in unix based OS
+    aria2cpath=''
+  endif
+  
   aria2c = aria2cpath + 'aria2c -c --auto-file-renaming=false '
   if not keyword_set(dir) then dir=GETENV('IDL_TMPDIR')
   if not file_test(dir,/directory) then file_mkdir,dir
